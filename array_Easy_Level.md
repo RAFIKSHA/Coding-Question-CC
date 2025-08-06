@@ -556,5 +556,595 @@ if __name__ == "__main__":
 ```
 
 ---
+---
 
+### 🔹**Question 10: Reverse the Array**
 
+**Problem:**
+
+Given an array of integers, reverse the array **in-place** and return it.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 1000
+* -10⁵ ≤ array\[i] ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `arr = [1, 2, 3, 4, 5]`
+Output: `[5, 4, 3, 2, 1]`
+
+**Test Case 2:**
+Input: `arr = [10]`
+Output: `[10]`
+
+**Test Case 3:**
+Input: `arr = [7, -8, 9]`
+Output: `[9, -8, 7]`
+
+**Test Case 4:**
+Input: `arr = []`
+Output: `[]`
+
+**Test Case 5:**
+Input: `arr = [-1, 0, 1]`
+Output: `[1, 0, -1]`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def reverseArray(self, nums):
+        left, right = 0, len(nums) - 1
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+        return nums
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    obj = Solution()
+    print(obj.reverseArray(nums))
+```
+
+---
+
+### 🔹**Question 11: Sum of Elements in Array**
+
+**Problem:**
+
+Given an array, return the sum of all its elements.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 10⁴
+* -10⁵ ≤ array\[i] ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `arr = [1, 2, 3]`
+Output: `6`
+
+**Test Case 2:**
+Input: `arr = [-1, -2, -3]`
+Output: `-6`
+
+**Test Case 3:**
+Input: `arr = [0, 0, 0]`
+Output: `0`
+
+**Test Case 4:**
+Input: `arr = [100, 200]`
+Output: `300`
+
+**Test Case 5:**
+Input: `arr = [10]`
+Output: `10`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def sumArray(self, nums):
+        return sum(nums)
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    obj = Solution()
+    print(obj.sumArray(nums))
+```
+
+---
+
+### 🔹**Question 12: Count Even Numbers in Array**
+
+**Problem:**
+
+Given an array, count how many elements are even.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 1000
+* -10⁵ ≤ array\[i] ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `arr = [1, 2, 3, 4]`
+Output: `2`
+
+**Test Case 2:**
+Input: `arr = [1, 3, 5]`
+Output: `0`
+
+**Test Case 3:**
+Input: `arr = [2, 4, 6, 8]`
+Output: `4`
+
+**Test Case 4:**
+Input: `arr = [0]`
+Output: `1`
+
+**Test Case 5:**
+Input: `arr = [-2, -4, 3, 7]`
+Output: `2`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def countEvens(self, nums):
+        count = 0
+        for num in nums:
+            if num % 2 == 0:
+                count += 1
+        return count
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    obj = Solution()
+    print(obj.countEvens(nums))
+```
+
+---
+
+### 🔹**Question 13: Check if Element Exists**
+
+**Problem:**
+
+Given an array and an integer `x`, return `True` if `x` exists in the array, else `False`.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 10⁴
+* -10⁵ ≤ array\[i], x ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `arr = [1, 2, 3], x = 2`
+Output: `True`
+
+**Test Case 2:**
+Input: `arr = [4, 5, 6], x = 7`
+Output: `False`
+
+**Test Case 3:**
+Input: `arr = [10], x = 10`
+Output: `True`
+
+**Test Case 4:**
+Input: `arr = [1, 2, 3, 4], x = 0`
+Output: `False`
+
+**Test Case 5:**
+Input: `arr = [-3, -2, -1], x = -2`
+Output: `True`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def exists(self, nums, x):
+        return x in nums
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    x = int(input())
+    obj = Solution()
+    print(obj.exists(nums, x))
+```
+
+---
+
+---
+
+### 🔹**Question 14: Find the Minimum Element in Array**
+
+**Problem:**
+
+Given an array of integers, find and return the minimum element.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 1000
+* -10⁵ ≤ array\[i] ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `[1, 2, 3, 4]`
+Output: `1`
+
+**Test Case 2:**
+Input: `[-1, -2, -3]`
+Output: `-3`
+
+**Test Case 3:**
+Input: `[10]`
+Output: `10`
+
+**Test Case 4:**
+Input: `[0, 100, -200, 50]`
+Output: `-200`
+
+**Test Case 5:**
+Input: `[3, 3, 3]`
+Output: `3`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def findMinimum(self, nums):
+        min_val = nums[0]
+        for num in nums:
+            if num < min_val:
+                min_val = num
+        return min_val
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    obj = Solution()
+    print(obj.findMinimum(nums))
+```
+
+---
+
+### 🔹**Question 15: Remove Duplicates from Array**
+
+**Problem:**
+
+Given an array of integers, return a new list with duplicates removed (order doesn't matter).
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 1000
+* -10⁵ ≤ array\[i] ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `[1, 2, 2, 3]`
+Output: `[1, 2, 3]`
+
+**Test Case 2:**
+Input: `[5, 5, 5]`
+Output: `[5]`
+
+**Test Case 3:**
+Input: `[1, 2, 3]`
+Output: `[1, 2, 3]`
+
+**Test Case 4:**
+Input: `[10, 10, 20, 30]`
+Output: `[10, 20, 30]`
+
+**Test Case 5:**
+Input: `[-1, -2, -1, -3]`
+Output: `[-1, -2, -3]`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def removeDuplicates(self, nums):
+        return list(set(nums))
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    obj = Solution()
+    print(obj.removeDuplicates(nums))
+```
+
+---
+
+### 🔹**Question 16: Count Positive Numbers in Array**
+
+**Problem:**
+
+Given an array of integers, count how many numbers are **greater than 0**.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 1000
+* -10⁵ ≤ array\[i] ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `[1, -1, 2, -2, 0]`
+Output: `2`
+
+**Test Case 2:**
+Input: `[-5, -3, -1]`
+Output: `0`
+
+**Test Case 3:**
+Input: `[10, 20, 30]`
+Output: `3`
+
+**Test Case 4:**
+Input: `[0, 0, 0]`
+Output: `0`
+
+**Test Case 5:**
+Input: `[5]`
+Output: `1`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def countPositive(self, nums):
+        count = 0
+        for num in nums:
+            if num > 0:
+                count += 1
+        return count
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    obj = Solution()
+    print(obj.countPositive(nums))
+```
+
+---
+
+### 🔹**Question 17: Find the Index of the Last Occurrence**
+
+**Problem:**
+
+Given an array and a target number `x`, return the **last index** where `x` occurs. If not found, return `-1`.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 1000
+* -10⁵ ≤ array\[i], x ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `arr = [1, 2, 3, 2], x = 2`
+Output: `3`
+
+**Test Case 2:**
+Input: `arr = [1, 2, 3], x = 4`
+Output: `-1`
+
+**Test Case 3:**
+Input: `arr = [5, 5, 5], x = 5`
+Output: `2`
+
+**Test Case 4:**
+Input: `arr = [0], x = 0`
+Output: `0`
+
+**Test Case 5:**
+Input: `arr = [7, 8, 9, 8], x = 8`
+Output: `3`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def lastOccurrence(self, nums, x):
+        for i in range(len(nums)-1, -1, -1):
+            if nums[i] == x:
+                return i
+        return -1
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    x = int(input())
+    obj = Solution()
+    print(obj.lastOccurrence(nums, x))
+```
+
+---
+
+### 🔹**Question 18: Check if Array Contains Only Zeros**
+
+**Problem:**
+
+Given an array, check whether all elements are zero.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 1000
+* -10⁵ ≤ array\[i] ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `[0, 0, 0]`
+Output: `True`
+
+**Test Case 2:**
+Input: `[0, 1, 0]`
+Output: `False`
+
+**Test Case 3:**
+Input: `[1, 2, 3]`
+Output: `False`
+
+**Test Case 4:**
+Input: `[0]`
+Output: `True`
+
+**Test Case 5:**
+Input: `[-1, 0]`
+Output: `False`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def onlyZeros(self, nums):
+        for num in nums:
+            if num != 0:
+                return False
+        return True
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    obj = Solution()
+    print(obj.onlyZeros(nums))
+```
+
+---
+
+### 🔹**Question 19: Check if All Elements Are Unique**
+
+**Problem:**
+
+Given an array, return `True` if all elements are **unique**, else return `False`.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 1000
+* -10⁵ ≤ array\[i] ≤ 10⁵
+
+---
+
+**Test Case 1:**
+Input: `[1, 2, 3]`
+Output: `True`
+
+**Test Case 2:**
+Input: `[1, 2, 2]`
+Output: `False`
+
+**Test Case 3:**
+Input: `[10]`
+Output: `True`
+
+**Test Case 4:**
+Input: `[5, 5, 5, 5]`
+Output: `False`
+
+**Test Case 5:**
+Input: `[-1, -2, -3, -4]`
+Output: `True`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def areElementsUnique(self, nums):
+        return len(set(nums)) == len(nums)
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    obj = Solution()
+    print(obj.areElementsUnique(nums))
+```
+
+---
+
+### 🔹**Question 20: Calculate Product of All Elements**
+
+**Problem:**
+
+Given an array, return the product (multiplication) of all elements.
+
+**Constraints:**
+
+* 1 ≤ length of array ≤ 1000
+* -100 ≤ array\[i] ≤ 100
+
+---
+
+**Test Case 1:**
+Input: `[1, 2, 3]`
+Output: `6`
+
+**Test Case 2:**
+Input: `[2, 0, 5]`
+Output: `0`
+
+**Test Case 3:**
+Input: `[-1, 2, -3]`
+Output: `6`
+
+**Test Case 4:**
+Input: `[10]`
+Output: `10`
+
+**Test Case 5:**
+Input: `[1, 1, 1, 1]`
+Output: `1`
+
+---
+
+**Solution:**
+
+```python
+class Solution:
+    def productOfArray(self, nums):
+        result = 1
+        for num in nums:
+            result *= num
+        return result
+
+# Driver code
+if __name__ == "__main__":
+    nums = list(map(int, input().split()))
+    obj = Solution()
+    print(obj.productOfArray(nums))
+```
+
+---
